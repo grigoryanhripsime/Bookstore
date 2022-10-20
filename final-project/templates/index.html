@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+		{% for row in data %}
+			<form class="form" action="item" method="post">
+				<div class="item">
+					<img src="{{ row['image'] }}" class="item-img">
+					<p class="item-name">{{ row['name'] }}</p>
+					<p class="item-author">{{ row['author'] }}</p>
+					<p class="item-price">${{ row['price'] }}</p>
+					<input name="item-id" type="hidden" value="{{ row['id'] }}">
+					<button class="btn-primary" type="submit">More</button>
+				</div>
+			</form>
+		{% endfor %}
+{% endblock %}

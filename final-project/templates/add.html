@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+	To add money
+{% endblock %}
+
+{% block main %}
+	<div>
+		<img src="https://i.pinimg.com/564x/ea/0b/ce/ea0bceb1bb574b4f99e0af014db5011a.jpg" class="pic">
+		<form action="/add" method="post">
+			<div class="mb-3">
+            	<input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="card" name="card" placeholder="Credit card" type="text">
+        	</div>
+        	<div class="mb-3">
+        		<input class="form-control mx-auto w-auto" id="cash" name="cash" placeholder="Size of money" type="number">
+        	</div>
+        	<button class="btn1 btn-primary" type="submit">Check</button>
+		</form>
+	</div>
+{% endblock %}
+

@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+        <tr>
+            <th>Sign</th>
+            <th>Credit card</th>
+            <th>Cash</th>
+            <th>Date</th>
+        </tr>
+        {% for row in data %}
+            <tr>
+                <td>{{ row["sign"] }}</td>
+                <td>{{ row["credit_card"] }}</td>
+                <td>${{ row["cash"] }}</td>
+                <td>{{ row["date"] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

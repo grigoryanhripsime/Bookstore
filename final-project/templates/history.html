@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+        <tr>
+            <th>Book's name</th>
+            <th>Author</th>
+            <th>Price</th>
+            <th>Seller</th>
+            <th>Date</th>
+        </tr>
+        {% for row in data %}
+            <tr>
+                <td>{{ row["name"] }}</td>
+                <td>{{ row["author"] }}</td>
+                <td>${{ row["price"] }}</td>
+                <td>{{ row["username"] }}</td>
+                <td>{{ row["date"] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
