@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy
+{% endblock %}
+
+{% block main %}
+    <form action="buy" style="display: inline-block;" method="post">
+        <div class="item">
+            <img src="{{ item[0]['image'] }}" class="item-img">
+            <p class="item-name">{{ item[0]['name'] }}</p>
+            <p class="item-author">{{ item[0]['author'] }}</p>
+            <p class="item-price">${{ item[0]['price'] }}</p>
+            <input name="item_id" type="hidden" value="{{ item[0]['id'] }}">
+        </div>
+        <div class="seller item">
+            <h3>Seller:</h3>
+                <h6 class="seller-name">Name:</h5>
+                <p class="seller-name">{{ seller[0]['username'] }}</p>
+                <h6 class="seller-email">Email:</h5>
+                <p class="seller-email">{{ seller[0]['email'] }}</p>
+                <h6 class="seller-phone">Phone number:</h5>
+                <p class="seller-phone">{{ seller[0]['phone_number'] }}</p>
+            <h5>Delivery:</h3>
+            <p>Please contact seller for delivery.</p>
+        </div>
+        <button class="btn-primary" type="submit">Buy</button>
+    </form>
+    <div class="also">
+        <h5 style="margin-left: 50px;">Also by this seller:</h5>
+        {% for row in data %}
+            {% if row['id'] != item[0]['id'] %}
+                <form class="form" style="margin-top: -20px;" action="item" method="post">
+                    <div class="item">
+                        <img src="{{ row['image'] }}" class="item-img">
+                        <p class="item-name">{{ row['name'] }}</p>
+                        <p class="item-author">{{ row['author'] }}</p>
+                        <p class="item-price">${{ row['price'] }}</p>
+                        <input name="item-id" type="hidden" value="{{ row['id'] }}">
+                        <button class="btn-primary" type="submit">More</button>
+                    </div>
+                </form>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

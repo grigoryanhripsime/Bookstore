@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+	Log in
+{% endblock %}
+
+{% block main %}
+	<div>
+		<img src="https://i.pinimg.com/564x/ea/0b/ce/ea0bceb1bb574b4f99e0af014db5011a.jpg" class="pic">
+		<form action="/login" method="post">
+			<div class="mb-3">
+            	<input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="username" placeholder="Username" type="text">
+        	</div>
+        	<div class="mb-3">
+        		<input class="form-control mx-auto w-auto" id="password" name="password" placeholder="Password" type="password">
+        	</div>
+        	<button class="btn1 btn-primary" type="submit">Log In</button>
+		</form>
+		<p class="reg">If you haven't account: <a href="/register">register</a></p>
+	</div>
+{% endblock %}
+
